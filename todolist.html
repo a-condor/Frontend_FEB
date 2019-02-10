@@ -6,17 +6,65 @@
     <title>TO-DO-LIST</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/todolist.css" />
-    <script src="js/todolist.js"></script>
+    <script type="text/javascript" src="js/todolist.js">
+    location.reload(false);
+    </script>
 </head>
-<body background = "images/imagsback.jpg">
-    <div>
-        hbvhkafhvewlw
-        ewfvhwvkef
-    </div>
+<body id="todo" background = "images/imagsback.jpg">
+    <div id="header">
+        <p>
+          <span id="date"></span> || <span id="time"></span>  
+        </p> 
+   </div>
+
+<div id="main-list">
+    <div id="todolist">
+    <h1 id="list">TO DO LIST</h1>
+    <p class="list">
+        <!-- <span class="check"> <input type="checkbox" name="" id=""> </span> |
+        <span class="titles">  </span> |
+        <span class="descriptions">  </span> |
+        <span class="times">  </span>|
+        <span class="deletes"> delete </span> -->
+    </p>
+   </div>
 
     <div id="bottom">
         <p class="bottom"><img src="images/list.svg" alt=""></p>
-        <p class="bottom"><a href="newtodo.html"><img src="images/add-song.svg" alt=""></a></p>
+        <p class="bottom" id="addTask"><img src="images/add-song.svg" alt=""></p>
+    </div> 
+</div>
+  
+<!-- dfbdfndngn -->
+<div id="add-list">
+    <div id="newtodo">
+        <div class="newtodo">
+            <h2>Task</h2>
+            <textarea class="task" type="text" placeholder="Enter your to-do here" required></textarea>
+        </div>
+
+        <div class="newtodo">
+            <h2>Description</h2>
+            <textarea class="description" type="text" placeholder="Infos concerning your task"></textarea>
+        </div>
+
+        <div class="newtodo">
+            <h2>Time due</h2>
+            <input class="time" type="time" name="" required>
+        </div>    
     </div>
+
+    <div id="addtodo">
+        <div>
+        <p class="addtodo">ADD</p>   
+        </div>
+
+        <div >   
+        <p class="addtodo">Back to LIST</p>
+        </div>
+    </div>
+</div>
+    
+
 </body>
 </html>

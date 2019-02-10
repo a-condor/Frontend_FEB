@@ -6,6 +6,12 @@ body {
     position: fixed;
     border: -5px;
     font-family: cursive;
+    margin: 0px;
+    padding: 0px
+}
+#todo {
+    position: relative;
+    width: inherit;
 }
 
 #bottom {
@@ -93,4 +99,37 @@ input {
     border-radius: 0.2em;
     -webkit-text-stroke: 0.5px;
     -webkit-text-stroke-color: black;
+}
+
+#header {
+    background:  rgb(243, 126, 48);
+    height: 40px;
+    padding: 1px 0px 3px 20px;
+    width: inherit;
+}
+#date {
+    font-weight: 1000;
+}
+
+#todolist {
+    width: 75%;
+    margin: 10px auto;
+}
+#list {
+    text-align: center; 
+    background-color: rgba(245, 87, 30, 0.8);
+    font-weight: 100;
+    border-radius: 0.2em;
+    margin-bottom: 1px
+}
+.list {
+    text-align: center; 
+    background-color: rgba(245, 87, 30, 0.65);
+    font-weight: 100;
+    border-radius: 0.2em;
+    margin: 5px 0px 0px 0px;
+    text-align: justify;
+    height: auto;
+    width: 75%;
+    margin: 10px auto;
 }
