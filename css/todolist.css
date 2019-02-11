@@ -72,7 +72,7 @@ textarea, input {
 }
 
 input {
-    width: 30%;
+    width: 40%;
     height: 25px
 }
 
@@ -90,7 +90,7 @@ input {
     padding-top: 7%;
     padding-bottom: 20%
 }
-.addtodo {
+.addtodo1 , .addtodo2 {
     background:  rgb(243, 126, 48);
     text-decoration: none;
     text-align: center;
@@ -128,8 +128,23 @@ input {
     font-weight: 100;
     border-radius: 0.2em;
     margin: 5px 0px 0px 0px;
-    text-align: justify;
+    text-align: left;
     height: auto;
-    width: 75%;
-    margin: 10px auto;
+    padding: 10px;
+}
+
+.check { width: 10%;
+    height: 20px
+}
+.titles { font-weight: bold;
+    font-size: 16px
+}
+.times { font-weight: bold;
+}
+.dates { font-size: 13px;
+}
+.deletes { color: red;
+    background-color: lightsalmon;
+    border-radius: 0.5em;
+    padding: 0px 5px
 }
