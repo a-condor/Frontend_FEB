@@ -57,6 +57,7 @@ document.querySelector("#addTask").addEventListener("click", function(){
     toAdd.style.display = "block";
 })
 
+
 }
 
 // remove marked todos and show remainder
@@ -64,28 +65,35 @@ function relist() {
     var x = document.getElementsByClassName("checkers"); 
     for (var i = 0; i < x.length; i++){ 
         if(x[i].checked){
-            x[i].parentElement.parentElement.style.display = "none";
+            x[i].parentElement.parentElement.classList.toggle("hide-show-list");
         } 
     };
 }
-// double clicking will show all element both done and undone
-// function rerelist() {
-//     var x = document.getElementsByClassName("checkers"); 
-//     for (var i = 0; i < x.length; i++){ 
-//         if(x[i].checked){
-//             x[i].parentElement.parentElement.style.display = "block";
-//         } 
-//     };
-// }
 
 // delete todo
 function deletes(){
-    var del = document.querySelector(".deletes");
-    del.parentElement.remove();
+    // var del = document.querySelector(".deletes");
+    // del.parentElement.remove();
+var del = document.querySelector(".deletes");
+for (var i = 0; i < del.length; i++){ 
+    if(del[i].clicked){
+        del.parentElement.remove();
+    }
+}
 }
 
 // mark todo
 function mark(){
-    var lists = document.querySelector(".list");
-    lists.classList.toggle("checker");
+    // var lists = document.querySelector(".list");
+    // lists.classList.toggle("checker");
+    var x = document.getElementsByClassName("checkers"); 
+    for (var i = 0; i < x.length; i++){ 
+        if(x[i].checked){
+            x[i].parentElement.parentElement.style.textDecoration = "line-through";
+            x[i].parentElement.parentElement.style.opacity = 0.7;
+        } else {
+            x[i].parentElement.parentElement.style.textDecoration = "none";
+            x[i].parentElement.parentElement.style.opacity = 1;
+        }
+    }
 }
