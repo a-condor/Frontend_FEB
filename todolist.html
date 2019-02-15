@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/todolist.css" />
     <script type="text/javascript" src="js/todolist.js">
-    location.reload(false);
     </script>
 </head>
 <body id="todo" background = "images/imagsback.jpg">
@@ -24,7 +23,9 @@
    </div>
 
     <div id="bottom">
-        <p class="bottom"><img src="images/list.svg" alt=""></p>
+        <p class="bottom" onclick="relist()" ondblclick="rerelist()"><img src="images/list.svg" alt="">
+        </p>
+
         <p class="bottom" id="addTask"><img src="images/add-song.svg" alt=""></p>
     </div> 
 </div>

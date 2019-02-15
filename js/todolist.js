@@ -26,7 +26,7 @@ else {
     let p = document.createElement("p");
     p.className = "list";
     document.querySelector("#todolist").appendChild(p);
-    p.innerHTML ='<span class="check"><input class="check" type="checkbox" name="" id=""></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="times">' + time + "  " + '</span>' + '<span class="deletes">' + "  " + 'delete' + '</span>';
+    p.innerHTML ='<span class="check"><input class="checkers" onclick="mark()" type="checkbox" name="" id=""></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="times">' + time + "  " + '</span>' + '<span class="deletes" onclick="deletes()">' + "  " + 'delete' + '</span>';
 
 var toAdd = document.querySelector("#add-list");
 toAdd.style.display = "none";
@@ -57,4 +57,35 @@ document.querySelector("#addTask").addEventListener("click", function(){
     toAdd.style.display = "block";
 })
 
+}
+
+// remove marked todos and show remainder
+function relist() {
+    var x = document.getElementsByClassName("checkers"); 
+    for (var i = 0; i < x.length; i++){ 
+        if(x[i].checked){
+            x[i].parentElement.parentElement.style.display = "none";
+        } 
+    };
+}
+// double clicking will show all element both done and undone
+// function rerelist() {
+//     var x = document.getElementsByClassName("checkers"); 
+//     for (var i = 0; i < x.length; i++){ 
+//         if(x[i].checked){
+//             x[i].parentElement.parentElement.style.display = "block";
+//         } 
+//     };
+// }
+
+// delete todo
+function deletes(){
+    var del = document.querySelector(".deletes");
+    del.parentElement.remove();
+}
+
+// mark todo
+function mark(){
+    var lists = document.querySelector(".list");
+    lists.classList.toggle("checker");
 }
