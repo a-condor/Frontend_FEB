@@ -131,23 +131,33 @@ input {
     text-align: left;
     height: auto;
     padding: 10px;
+    word-break: break-all;
 }
 
 .check, .checkers { width: 10%;
-    height: 20px;
+    height: 15px;
 }
 .titles { font-weight: bold;
     font-size: 16px
 }
 .times { font-weight: bold;
+    word-break: unset;
+    display: inline-block;
 }
 .dates { font-size: 13px;
+    word-break: unset;
+    display: inline-block;
 }
 .deletes { color: red;
     background-color: lightsalmon;
     border-radius: 0.5em;
-    padding: 0px 5px;
+    padding: 2px 5px;
+    word-break: unset;
+    display: inline-block;
 } 
+.del { width: 20px;
+    height: 15px; 
+}
 
 .hide-show-list {
     display: none;

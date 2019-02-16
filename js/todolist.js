@@ -4,7 +4,7 @@ window.onload = function(){
 var d = new Date();
 document.querySelector("#date").innerHTML = d.toDateString();
 var t = new Date();
-document.querySelector("#time").innerHTML = d.toLocaleTimeString();
+document.querySelector("#time").innerHTML = t.toLocaleTimeString();
 
 // basic page setting
 var toAdd = document.querySelector("#add-list");
@@ -18,15 +18,16 @@ document.querySelector(".addtodo1").addEventListener("click", function(){
 var task = document.querySelector(".task").value;
 var description = document.querySelector(".description").value;
 var date = document.querySelector(".time1").value;
+if(date === ""){ date = date} else {date = "(" + date + ")"}
 var time = document.querySelector(".time2").value;
 
 if (task === ""){alert("Please enter a task!")}
-else if (time === ""){alert("Please enter task's due time!")}
+else if (time == ""){alert("Please enter task's due time!")}
 else {
     let p = document.createElement("p");
     p.className = "list";
     document.querySelector("#todolist").appendChild(p);
-    p.innerHTML ='<span class="check"><input class="checkers" onclick="mark()" type="checkbox" name="" id=""></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="times">' + time + "  " + '</span>' + '<span class="deletes" onclick="deletes()">' + "  " + 'delete' + '</span>';
+    p.innerHTML ='<span class="check"><input class="checkers" onclick="mark()" type="checkbox"></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="times">' + time + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="deletes" onclick="deletion()">' + "  " + 'delete' + '<input  class="del" type="radio">' +'</span>';
 
 var toAdd = document.querySelector("#add-list");
 toAdd.style.display = "none";
@@ -57,8 +58,19 @@ document.querySelector("#addTask").addEventListener("click", function(){
     toAdd.style.display = "block";
 })
 
-
 }
+
+// show an alert when the time is due
+// window.setInterval(function(){
+//     var dueTime = document.getElementsByClassName("times");
+//     var realTime = new Date().toLocaleTimeString();
+//     for (i = 0; i < dueTime.length; i++){
+//         if(dueTime == realTime){
+//             alert("grannnnnnnnnnn")
+//         }
+//     }
+//     console.log(dueTime , realTime)
+// }, 1000)
 
 // remove marked todos and show remainder
 function relist() {
@@ -70,22 +82,8 @@ function relist() {
     };
 }
 
-// delete todo
-function deletes(){
-    // var del = document.querySelector(".deletes");
-    // del.parentElement.remove();
-var del = document.querySelector(".deletes");
-for (var i = 0; i < del.length; i++){ 
-    if(del[i].clicked){
-        del.parentElement.remove();
-    }
-}
-}
-
 // mark todo
 function mark(){
-    // var lists = document.querySelector(".list");
-    // lists.classList.toggle("checker");
     var x = document.getElementsByClassName("checkers"); 
     for (var i = 0; i < x.length; i++){ 
         if(x[i].checked){
@@ -97,3 +95,15 @@ function mark(){
         }
     }
 }
+
+// delete todo
+function deletion(){
+    var d = document.getElementsByClassName("del"); 
+for (var i = 0; i < d.length; i++){ 
+    if(d[i].checked){
+        d[i].parentElement.parentElement.style.display = "none";
+    }
+};
+}
+
+
