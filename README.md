@@ -5,6 +5,7 @@ FEATURES:
 - shows current time and date
 - add a new to-do
 - alert if compulsory innputs are not filled
+- mark and differentiate accomplished to-dos
 - show and hide marked to-dos
 - delete to-dos
 - an alert to showing time due for task
