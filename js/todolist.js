@@ -27,7 +27,7 @@ else {
     let p = document.createElement("p");
     p.className = "list";
     document.querySelector("#todolist").appendChild(p);
-    p.innerHTML ='<span class="check"><input class="checkers" onclick="mark()" type="checkbox"></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="times">' + time + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="deletes" onclick="deletion()">' + "  " + 'delete' + '<input  class="del" type="radio">' +'</span>';
+    p.innerHTML = '<span class="check"><input class="checkers" onclick="mark()" type="checkbox"></span>'+ '<span class="titles">' + task + "  " + '</span>' + '<span class="descriptions">' + description + "  " + '</span>' + '<span class="times">' + time + "  " + '</span>' + '<span class="dates">' + date + "  " + '</span>'  + '<span class="deletes" onclick="deletion()">' + "  " + 'delete' + '<input  class="del" type="radio">' +'</span>';
 
 var toAdd = document.querySelector("#add-list");
 toAdd.style.display = "none";
@@ -61,16 +61,38 @@ document.querySelector("#addTask").addEventListener("click", function(){
 }
 
 // show an alert when the time is due
-// window.setInterval(function(){
-//     var dueTime = document.getElementsByClassName("times");
-//     var realTime = new Date().toLocaleTimeString();
-//     for (i = 0; i < dueTime.length; i++){
-//         if(dueTime == realTime){
-//             alert("grannnnnnnnnnn")
-//         }
-//     }
-//     console.log(dueTime , realTime)
-// }, 1000)
+window.setInterval(function(){
+    var rT = new Date();
+    //date
+    var yr = rT.getFullYear(); var mn = rT.getMonth()+1 ; 
+    var d = rT.getDate();
+    if(mn < 10){ mn = '0' + mn };  if(d < 10){ d = '0' + d };
+    var realDate = "(" + yr + "-" + mn + "-" + d + ")";
+    //time
+    var h = rT.getHours(); var m = rT.getMinutes();
+    if(m < 10){ m = '0' + m };
+    var realTime = h + ":" + m;
+    //
+    var dueDate = document.getElementsByClassName("dates");
+
+    for (i = 0 ; i < dueDate.length; i++){
+       if(dueDate[i].innerText == ""){
+            if(dueDate[i].parentElement.getElementsByClassName("times").item(0).innerText == realTime){
+                alert("The time is" + " " + realTime + "." + " " + "You have a task to do :" + " " + dueDate[i].parentElement.getElementsByClassName("titles").item(0).innerText );
+            } 
+            // else { console.log(realTime) }
+       } 
+       else if(dueDate[i].innerText !== realDate){
+        //    console.log("not today")
+       }
+       else if(dueDate[i].innerText == realDate){
+            if(dueDate[i].parentElement.getElementsByClassName("times").item(0).innerText == realTime){
+                alert("The time is" + " " + realTime + "." + " " + "You have a task to do :" + " " + dueDate[i].parentElement.getElementsByClassName("titles").item(0).innerText );
+            } 
+            // else { console.log(realTime) } 
+       }
+    }   
+}, 60000)
 
 // remove marked todos and show remainder
 function relist() {
@@ -105,5 +127,3 @@ for (var i = 0; i < d.length; i++){
     }
 };
 }
-
-
